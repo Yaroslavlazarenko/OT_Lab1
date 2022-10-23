@@ -9,12 +9,17 @@ public class Main {
         FileOutputStream output = new FileOutputStream("./src/output.txt");
         InputData inputData = new InputData(Integer.parseInt(input.nextLine().replaceAll(" ", "").split(":")[1]),
                 Integer.parseInt(input.nextLine().replaceAll(" ", "").split(":")[1]),
-                Integer.parseInt(input.nextLine().replaceAll(" ", "").split(":")[1]),
                 input.nextLine().replaceAll(" ", "").split(":")[1].toCharArray());
+        String numberOne = NumberConversion.converse(inputData);
+        inputData.setBaseNumber(input.nextLine().replaceAll(" ", "").split(":")[1].toCharArray());
+        String numberTwo = NumberConversion.converse(inputData);
         input.close();
-        String outputData = "Основание исходной системы счисления: " + inputData.getBaseOrig()+
-                "\nОснование целевой системы счисления: " + inputData.getBaseTarget() + "\nНачальное число: "
-                + new String(inputData.getBaseNumber()) + "\nИтоговое число: " + NumberCalculate.calculate(inputData);
+        String finalNumber = NumberCalculate.calculate(numberOne,numberTwo);
+        String outputData = "Начальное первое число: "+ numberOne + "\nНачальное второе число: "+
+                numberTwo  + "\nСлогаемые числа представлены в виде обратного кода:\n" +
+                NumberConversion.directInReverse(numberOne.toCharArray()) + " - " +
+                NumberConversion.directInReverse(numberTwo.toCharArray()) + " = " +
+                "\nОтвет в виде прямого кода: \n" + finalNumber;
         output.write(outputData.getBytes());
         output.close();
     }
