@@ -66,15 +66,9 @@ public class NumberConversion {
             return new String(charsTargetNumber);
     }
 
-    public static String directInReverse(char[] number) {
+    public static String directCodeStyle(char[] number) {
         if (number[0] == '-') {
             number[0] = ',';
-            for (int i = 1; i < number.length; i++) {
-                if(number[i]=='0')
-                    number[i]='1';
-                else
-                    number[i]='0';
-            }
             return "1" + new String(number);
         } else
             return "0," + new String(number);

@@ -16,10 +16,10 @@ public class Main {
         input.close();
         String finalNumber = NumberCalculate.calculate(numberOne,numberTwo);
         String outputData = "Начальное первое число: "+ numberOne + "\nНачальное второе число: "+
-                numberTwo  + "\nСлогаемые числа представлены в виде обратного кода:\n" +
-                NumberConversion.directInReverse(numberOne.toCharArray()) + " - " +
-                NumberConversion.directInReverse(numberTwo.toCharArray()) + " = " +
-                "\nОтвет в виде прямого кода: \n" + finalNumber;
+                numberTwo  + "\nСлогаемые числа представлены в виде прямого кода:\n" +
+                NumberConversion.directCodeStyle(numberOne.toCharArray()) + " - " +
+                NumberConversion.directCodeStyle(numberTwo.toCharArray()) + " = " +
+                "\nОтвет в виде обратного кода: \n" + finalNumber;
         output.write(outputData.getBytes());
         output.close();
     }
